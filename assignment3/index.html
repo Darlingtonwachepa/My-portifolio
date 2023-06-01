@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    body {
+    width:100% ;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   }
+
+   .greet-wrapper {
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vh;
+    background-color: lightgray;
+   }
+
+   .project-wrapper{
+    width: 80%;
+    height: 75vh;
+    background-color: lightgray;
+    margin-top: 10vh;
+   }
+   .title {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+   }
+
+   .img-wrapper {
+    width: 100%;
+    height: 70vh;
+    background-position: center;
+    background-size: cover;
+   }
+
+   .nav {
+    width: 18%;
+    height: 75%;
+    background-color: lightgray;
+    position: absolute;
+    top: 21vh;
+    right: 10px;
+   }
+   .link {
+    margin: auto;
+    width: 98%;
+    height: 5vh;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+    background-color: rgb(3, 106, 143);
+    color: white;
+    border-radius: 5px;
+   }
+   .creater-wrapper {
+    height: 10vh;
+    width: 18%;
+    position: absolute;
+    top: 1vh;
+    right: 10px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+
+    </style>
+    <div class="greet-wrapper">
+        <h1 class="greet">Good morning</h1>
+    </div>
+
+    <div class="project-wrapper">
+        <div class="title">Slide Show</div>
+        <div class="img-wrapper">
+        </div>
+    </div>
+
+    <div class="nav">
+        <a href="projects.html" class="link">PROJECTS</a>
+        <a href="skills.html" class="link">SKILLS</a>
+        <a href="contacts.html" class="link">CONTACT US</a>
+    </div>
+
+    <div class="creater-wrapper">
+        <div class="creater-name">BY: DARLINGTON WACHEPA</div>
+    </div>
+
+    <script>
+
+        var index = 0;
+        var images = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg', 'img6.jpg', 'img7.ijp'];
+
+        let targetElement = document.querySelector('.img-wrapper');
+
+        /** change background image every 5 seconds */
+        setInterval(() => {
+
+            (index < images.length - 2) ? index++ : index = 0;  //reset position to 0 when we reach end of array
+            targetElement.style.background = `url(${images[index]})`;
+        }, 5000);
+
+        let h2 = document.querySelector('.greet');
+
+        let currentHour = new Date().getHours(); //get current hour
+
+        if (currentHour >= 5 && currentHour < 12) {
+            h2.textContent = 'Good morning';
+        } else if (currentHour >= 12 && currentHour < 18) {
+            h2.textContent = 'Good afternoon';
+        } else {
+            h2.textContent = 'Good evening';
+        }
+
+
+
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style type="text/css">
+        body {
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            text-align: left;
+            margin: 0;
+            position: relative;
+        }
+    
+        div {
+            padding: 50px;
+    
+            margin:15 15px 0 15px;
+            background-color: rgba(229, 239, 243, 0.084);
+    
+        }
+    
+        li {
+            background-color: lightgray;
+            margin-top: 4vh;
+            list-style:disc;
+            padding-left: 5px;
+            position: relative;
+            cursor: pointer;
+            height: 5.5vh;
+            display: flex;
+            align-items: center;
+            width: 80%;
+        }
+        a {
+            width: 150px;
+            height: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(3, 106, 143);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    
+        #main li .hint {
+            content: 'Main skill';
+            position: absolute;
+            top: -25px;
+            right: 0;
+            background-color: rgba(45, 45, 45, 0.664);
+            color: white;
+            padding: 2px;
+            border-radius: 2px;
+    
+        }
+    
+        .vanish {
+            display: none;
+        }
+        #main li:hover .vanish {
+            display: block;
+        }
+    
+        .primary-skill {
+            background-color: rgb(3, 106, 143);
+            color: white;
+        }
+    
+        h1 {
+            font-family: Times, serif;
+            font-size: xx-large;
+            color: black;
+        }
+        .bar-wrapper {
+            width: 40px;
+            height: 400px;
+            background-color: darkgrey;
+            position: absolute;
+            right: 5%;
+            bottom: 15vh;
+        }
+        .bar {
+            width: 100%;
+            background-color: black;
+            position: absolute;
+            bottom: 0;
+            transition: all 1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .title {
+            position: absolute;
+            bottom: -5vh;
+            left: -15px;
+            font-weight: bold;
+        }
+    </style>
+    
+    <section class="bar-wrapper">
+        <section class="bar"></section>
+        <section class="title">Proficience</section>
+    </section>
+
+    <div>
+        <h1>My Skills</h1>
+    
+        <ol id="main">
+            <li class="primary-skill">C Programing <span class="hint vanish">Very bad</span></li>
+            <li>Web designing using html, css, and javascript<span class="hint vanish">excellent</span></li>
+            <li>Computer hardware and software maintanance<span class="hint vanish">better</span></li>
+            <li>tilling<span class="hint vanish">bad</span></li>
+            <li>Wall plastering<span class="hint vanish">better</span></li>
+            <li>Water proofing<span class="hint vanish">great</span></li>
+            <li>Brick laying<span class="hint vanish">better</span></li>
+            <li>paving installation<span class="hint vanish">very good</span></li>
+    
+        </ol>
+    
+        <a href="index.html">Go Home</a>
+        
+    </div>
+
+
+    <script>
+
+        // select first element in main skills list
+        let primary_skill = document.getElementsByClassName('primary-skill')[0];
+
+        //toggle style every second to attain attention
+        let i_ID = setInterval(() => {
+            primary_skill.classList.toggle('primary-skill');
+        }, 150);
+
+        setTimeout(() => {
+            clearInterval(i_ID);
+            primary_skill.classList.remove('primary-skill');
+        }, 3000);
+
+
+        document.querySelectorAll('.hint').forEach(level => {
+
+            level.parentElement.onmouseover = () => {
+                let bar = document.querySelector('.bar');
+                if (level.innerHTML === 'bad'){
+                    bar.style.height = '20%';
+                    bar.innerHTML = '20%';
+                }
+                else if (level.innerHTML === 'better'){
+                    bar.style.height = '55%';
+                    bar.innerHTML = '55%';
+                }
+                else if (level.innerHTML === 'great'){
+                    bar.style.height = '70%';
+                    bar.innerHTML = '70%';
+                }
+                else if (level.innerHTML === 'very good'){
+                    bar.style.height = '80%';
+                    bar.innerHTML = '80%';
+                }
+                else if (level.innerHTML === 'excellent'){
+                    bar.style.height = '98%';
+                    bar.innerHTML = '98%';
+                }
+            }
+
+            level.parentElement.onmouseout = () => {
+                let bar = document.querySelector('.bar');
+                bar.style.height = '0';
+                bar.innerHTML = '';
+            }
+        })
+
+    </script>
+
+</body>
+</html>
+
