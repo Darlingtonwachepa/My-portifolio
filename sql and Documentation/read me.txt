@@ -1,0 +1,43 @@
+There are five source code files in this projects: config.php, index.html, contacts.php, projects.php, skills.php
+
+
+All source code files interact with the database called "potifolio"
+this database has three tables: contacts, projects and skills
+
+
+contacts table
+this table will have four columns
+1. email (varchar): primary  key
+2. fname (varchar): first name
+3. surname (varchar): surname
+4. message (varchar): for user's message
+
+
+projects table
+this table will have 2 columns
+1. ID (int): primary key auto increment, identifies each project
+2. project_name (varchar): name of the project
+
+
+skills table
+this table will have three columns
+1. ID (int): primary key, auto increment
+2. skill (varchar): name of the skill
+3. skill_type (varchar): type of skill as either "main" or "other" as the system uses this info to represent the skill in an appropriate way
+
+
+config.php: this page creates the database, tables and inserts data into the tables so that the system is simply used without need worry abou the database
+also, config.php should be requested before any other page if it is the first time on that computer so that it can prepare database for other pages
+the other pages do not include config.php
+
+index.html is the home page and is the gateway to all other pages of the site
+
+
+contacts.php: this page is used to get user's data such as name, email, gender and their message and so it interacts with contacts table. 
+it validates user input before submission
+
+
+projects.php: this page interacts with the projects table and displays the projects and includes search functionality
+
+
+skills.php: this page interacts with the skills table to read skills and displays them
